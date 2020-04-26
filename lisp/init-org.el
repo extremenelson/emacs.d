@@ -144,10 +144,18 @@ typical word processor."
 (global-set-key (kbd "C-c c") 'org-capture)
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "")  ; "" => `org-default-notes-file'
-         "* NEXT %?\n%U\n" :clock-resume t)
-        ("n" "note" entry (file "")
+      `(("t" "todo" entry (file "~/git/org/inbox.org")  ; "" => `org-default-notes-file'
+         "* TODO %?\n%U\n" :clock-resume t)
+        ("n" "note" entry (file "~/git/org/inbox.org")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+        ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
+         "* %?\n%U\n" :clock-in t :clock-resume t)
+        ("m" "Meeting" entry (file "~/git/org/inbox.org")
+         "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+        ("p" "Phone call" entry (file "~/git/org/inbox.org")
+         "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+        ("h" "Habit" entry (file "~/git/org/inbox.org")
+         "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
         ))
 
 
