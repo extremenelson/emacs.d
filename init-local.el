@@ -108,6 +108,7 @@
  ;; integrate emacs diary entries into org agenda
  org-agenda-include-diary t
  )
+
 (provide 'init-local)
 
 ;; Local Variables:
