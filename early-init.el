@@ -10,6 +10,8 @@
 
 (setq package-enable-at-startup nil)
 
+(setq org-roam-directory "~/git/org-roam-files")
+
 ;; So we can detect this having been loaded
 (provide 'early-init)
 
